@@ -1,0 +1,25 @@
+[
+  {
+    "username": "samay001",
+    "password": "samay",
+    "userId": "213",
+    "ticket_bookings": [
+      {
+        "trainNumber": "21203",
+        "source": "punjab",
+        "destination": "chhattisgarh",
+        "dateOfTravel": "2023-12-08T18:30:00Z",
+        "totalSeat": 80,
+        "numberOfSeatBooked": 2
+      },
+      {
+        "trainNumber": "32342",
+        "source": "chhattisgarh",
+        "destination": "punjab",
+        "dateOfTravel": "2023-12-12T18:30:00Z",
+        "totalSeat": 80,
+        "numberOfSeatBooked": 1
+      }
+    ]
+  }
+]

@@ -4,14 +4,19 @@
 package ticket.booking;
 
 import ticket.booking.entities.User;
+import ticket.booking.services.UserBookingServices;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class App {
 
     public static void main(String[] args) {
         System.out.println("Application Started");
         Scanner input = new Scanner(System.in);
+
+        UserBookingServices userBookingServices = new UserBookingServices();
 
         System.out.println("Choose options");
         System.out.println("1: Sign Up");
@@ -31,9 +36,10 @@ public class App {
                 String usernameToSignup = input.next();
                 System.out.println("Enter Password");
                 String passwordToSignUp = input.next();
-                System.out.println("username: " + usernameToSignup + " " + "password: " + passwordToSignUp);
-                User user1 = new User(usernameToSignup,passwordToSignUp);
-                System.out.println("User Created: " + user1.getUsername() + " | " + user1.getPassword());
+//                System.out.println("username: " + usernameToSignup + " " + "password: " + passwordToSignUp);
+                User newUser = new User(usernameToSignup,passwordToSignUp,UUID.randomUUID().toString(),new ArrayList<>());
+                userBookingServices.signUp(newUser);
+                System.out.println("User Created: " + newUser.getUsername() + " | " + newUser.getPassword());
                 break;
 
             case 2:
