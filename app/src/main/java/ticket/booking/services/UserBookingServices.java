@@ -6,7 +6,6 @@ import ticket.booking.entities.User;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,11 +34,11 @@ public class UserBookingServices {
             }
 
             userList.add(newUser);
-            objectMapper.writeValue(file,userList);
-            System.out.println("User data Successfully");
+            objectMapper.writeValue(file, userList);
+            System.out.println("User data stored successfully.");
         }
         catch (IOException e){
-            System.out.println("Error Storing user to database");
+            System.out.println("Error storing user to database: " + e.getMessage());
         }
     }
 
@@ -65,29 +64,55 @@ public class UserBookingServices {
             }
         }
 
-        System.out.println("No user found with username: " + user);
+        System.out.println("No user found with username: " + user.getUsername());
+        return false;
+    }
+
+    // New Method: Check if Username Already Exists
+    public Boolean isUsernameTaken(String username) {
+        File file = new File(USER_DB_PATH);
+        List<User> userList;
+
+        if (file.exists() && file.length() > 0) {
+            try {
+                userList = objectMapper.readValue(file, new TypeReference<List<User>>() {});
+
+                boolean usernameExists = userList.stream()
+                        .anyMatch(u -> u.getUsername().equals(username));
+
+                return usernameExists;
+            } catch (IOException e) {
+                System.out.println("Error reading user database: " + e.getMessage());
+            }
+        }
         return false;
     }
 
     public void signUp(User newUser) {
         try {
-            if (fetchUserFromDb(newUser)) {
-                System.out.println("User already exists!");
+            if (isUsernameTaken(newUser.getUsername())) {
+                System.out.println("Username already taken. Please choose another one.");
             }
-            storeUserToDb(newUser);
-            System.out.println("User successfully signup!");
+            else{
+                storeUserToDb(newUser);
+                System.out.println("User successfully signed up!");
+            }
+
         } catch (Exception e) {
             System.out.println("Error during sign-up: " + e.getMessage());
         }
     }
 
-
     public Boolean login(User user){
         try{
             if(fetchUserFromDb(user)){
-                System.out.println("User Login successfully");
+                System.out.println("User logged in successfully.");
+                return true;
             }
-            return true;
+            else {
+                System.out.println("Invalid username or password.");
+                return false;
+            }
         }
         catch (Exception e){
             System.out.println("Error during login:" + e.getMessage());

@@ -1,5 +1,9 @@
 package ticket.booking.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
 public class Train {
 
     private String trainNumber;
@@ -10,35 +14,42 @@ public class Train {
     private final Integer totalSeats = 80;
     private Integer remainingSeats;
 
-    public Train(String trainNumber,String trainName,String source,String destination,String dateOfTravel){
+
+    public Train(){
+        this.remainingSeats = totalSeats; // Initialize with total seats
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public Train(String trainNumber, String trainName, String source, String destination, String dateOfTravel){
         this.trainNumber = trainNumber;
         this.trainName = trainName;
         this.source = source;
         this.destination = destination;
         this.dateOfTravel = dateOfTravel;
+        this.remainingSeats = totalSeats; // Initialize with total seats
     }
 
-    //getter
+    // Getters
     public String getTrainNumber(){
         return trainNumber;
     }
-    public String trainName(){
+    public String getTrainName(){
         return trainName;
     }
-    public String source(){
+    public String getSource(){
         return source;
     }
-    public String destination(){
+    public String getDestination(){
         return destination;
     }
-    public String dateOfTravel(){
+    public String getDateOfTravel(){
         return dateOfTravel;
     }
     public Integer getRemainingSeats(){
         return remainingSeats;
     }
 
-    //setter
+    // Setters
     public void setTrainNumber(String trainNumber){
         this.trainNumber = trainNumber;
     }

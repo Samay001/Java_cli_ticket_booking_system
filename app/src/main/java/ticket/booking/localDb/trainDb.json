@@ -3,9 +3,8 @@
     "trainNumber": "22416",
     "trainName": "Vande Bharat",
     "source": "New Delhi",
-    "destination": "visakhapatnam",
+    "destination": "Visakhapatnam",
     "dateOfTravel": "2023-12-08T18:30:00Z",
-    "totalSeat": 80,
     "remainingSeat": 40
   },
   {
@@ -14,16 +13,14 @@
     "source": "Raigarh",
     "destination": "Nizamuddin",
     "dateOfTravel": "2023-12-08T18:30:00Z",
-    "totalSeat": 80,
     "remainingSeat": 40
   },
   {
     "trainNumber": "12058",
-    "trainName": "Jan Shatabdi Express ",
+    "trainName": "Jan Shatabdi Express",
     "source": "Kharar",
     "destination": "New Delhi",
     "dateOfTravel": "2023-12-08T18:30:00Z",
-    "totalSeat": 80,
     "remainingSeat": 40
   }
 ]

@@ -9,11 +9,12 @@
       <change beforePath="$PROJECT_DIR$/../basics/src/Abstraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../basics/src/Abstraction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../basics/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../basics/src/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ticket/booking/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ticket/booking/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ticket/booking/entities/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ticket/booking/entities/Ticket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ticket/booking/entities/Train.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ticket/booking/entities/Train.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ticket/booking/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ticket/booking/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ticket/booking/localDb/trainDb.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ticket/booking/localDb/trainDb.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ticket/booking/localDb/userDb.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ticket/booking/localDb/userDb.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ticket/booking/services/UserBookingServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ticket/booking/services/UserBookingServices.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +26,23 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ticket-booking" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
