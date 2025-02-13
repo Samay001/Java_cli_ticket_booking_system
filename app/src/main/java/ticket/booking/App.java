@@ -108,7 +108,7 @@ public class App {
                         int countOfSeats = input.nextInt();
                         trainServices.updateSeatCount(countOfSeats,trainName);
                         System.out.println("Successfully booked your seats");
-                        userBookingServices.updateTicketsBooked(loggedInUser,trainName);
+                        userBookingServices.updateTicketsBooked(loggedInUser,trainName,countOfSeats);
                     } else {
                         System.out.println("Please login first.");
                     }

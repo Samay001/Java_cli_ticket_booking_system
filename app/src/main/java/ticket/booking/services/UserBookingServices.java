@@ -125,7 +125,7 @@ public class UserBookingServices {
     }
 
 
-    public void updateTicketsBooked(String username, String trainName) {
+    public void updateTicketsBooked(String username, String trainName,Integer bookedSeats) {
         try {
             // Load the user list from the JSON file
             File userFile = new File(USER_DB_PATH);
@@ -163,7 +163,7 @@ public class UserBookingServices {
             newTicket.setUserId(userToUpdate.getUsername());
             newTicket.setSource(selectedTrain.getSource());
             newTicket.setDestination(selectedTrain.getDestination());
-            newTicket.setBookedSeats(1);  // Assuming 1 seat booked, adjust as needed
+            newTicket.setBookedSeats(bookedSeats);
 
             // Add the new ticket to the user's ticket list
             List<Ticket> tickets = userToUpdate.getTicketsBooked();
