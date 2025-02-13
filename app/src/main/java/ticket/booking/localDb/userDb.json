@@ -1,1 +1,39 @@
-[{"username":"samay001","password":"samay","userId":"213","ticketsBooked":[{"trainNumber":"12409","trainName":"Gondwana Express","source":"Raigarh","destination":"Nizamuddin","dateOfTravel":"2023-12-08T18:30:00Z","userId":null,"bookedSeats":2},{"trainNumber":"22416","trainName":"Vande Bharat","source":"New Delhi","destination":"Visakhapatnam","dateOfTravel":"2023-12-08T18:30:00Z","userId":null,"bookedSeats":3}]},{"username":"samay","password":"124","userId":"a353f7f6-2b34-499f-a521-2f13d01aeb67","ticketsBooked":[]}]
+[
+  {
+    "username": "samay001",
+    "password": "samay",
+    "userId": "213",
+    "ticketsBooked": [
+      {
+        "trainNumber": "12409",
+        "trainName": "Gondwana Express",
+        "source": "Raigarh",
+        "destination": "Nizamuddin",
+        "dateOfTravel": "2023-12-08T18:30:00Z",
+        "userId": null,
+        "bookedSeats": 2
+      },
+      {
+        "trainNumber": "22416",
+        "trainName": "Vande Bharat",
+        "source": "New Delhi",
+        "destination": "Visakhapatnam",
+        "dateOfTravel": "2023-12-08T18:30:00Z",
+        "userId": null,
+        "bookedSeats": 3
+      }
+    ]
+  },
+  {
+    "username": "samay",
+    "password": "124",
+    "userId": "a353f7f6-2b34-499f-a521-2f13d01aeb67",
+    "ticketsBooked": []
+  },
+  {
+    "username": "ayush",
+    "password": "ayushleo",
+    "userId": "925bc73c-8161-4abd-b464-46a44700ba10",
+    "ticketsBooked": []
+  }
+]

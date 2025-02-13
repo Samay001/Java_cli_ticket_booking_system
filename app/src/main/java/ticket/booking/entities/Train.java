@@ -1,6 +1,7 @@
 package ticket.booking.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
@@ -12,11 +13,12 @@ public class Train {
     private String destination;
     private String dateOfTravel;
     private final Integer totalSeats = 80;
+    @JsonProperty("remainingSeat")
     private Integer remainingSeats;
 
 
     public Train(){
-        this.remainingSeats = totalSeats; // Initialize with total seats
+        this.remainingSeats = totalSeats;
     }
 
     @JsonIgnoreProperties(ignoreUnknown = true)
@@ -26,7 +28,7 @@ public class Train {
         this.source = source;
         this.destination = destination;
         this.dateOfTravel = dateOfTravel;
-        this.remainingSeats = totalSeats; // Initialize with total seats
+        this.remainingSeats = totalSeats;
     }
 
     // Getters

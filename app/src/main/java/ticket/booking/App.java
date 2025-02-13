@@ -1,19 +1,22 @@
 package ticket.booking;
 
 import ticket.booking.entities.User;
+import ticket.booking.services.TrainServices;
 import ticket.booking.services.UserBookingServices;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
 
 public class App {
 
-    public static void main(String[] args) {
+    public static <Train> void main(String[] args) {
         System.out.println("Welcome to the IRCTC Ticket Booking System!");
 
         Scanner input = new Scanner(System.in);
         UserBookingServices userBookingServices = new UserBookingServices();
+        TrainServices trainServices = new TrainServices();
         boolean isRunning = true;
         boolean isAuthenticated = false;
         String loggedInUser = null;
@@ -58,7 +61,7 @@ public class App {
                     System.out.print("Enter Password: ");
                     String passwordToLogin = input.nextLine().trim();
 
-                    User userToLogin = new User(usernameToLogin, passwordToLogin, null, null);
+                    User userToLogin = new User(usernameToLogin, passwordToLogin);
                     if (userBookingServices.login(userToLogin)) {
                         isAuthenticated = true;
                         loggedInUser = usernameToLogin;
@@ -73,6 +76,7 @@ public class App {
                         System.out.println("\n=== Fetch Bookings ===");
                         System.out.println("Fetching bookings for " + loggedInUser + "...");
                         // Call the method to fetch bookings for loggedInUser (to be implemented)
+                        userBookingServices.fetchBookings();
                     } else {
                         System.out.println("Please login first.");
                     }
@@ -86,7 +90,8 @@ public class App {
                         System.out.print("Enter Destination: ");
                         String destination = input.nextLine().trim();
                         System.out.println("Searching trains from " + source + " to " + destination + "...");
-                        // Call the method to search trains (to be implemented)
+                        List<String> trains = trainServices.getTrains(source,destination);
+                        System.out.println(trains);
                     } else {
                         System.out.println("Please login first.");
                     }
@@ -95,8 +100,15 @@ public class App {
                 case 5:
                     if (isAuthenticated) {
                         System.out.println("\n=== Book Seats ===");
-                        System.out.println("Booking seats for " + loggedInUser + "...");
-                        // Call the method to book seats (to be implemented)
+                        System.out.println("Enter the source");
+                        String source = input.nextLine();
+                        System.out.println("Enter the destination");
+                        String destination = input.nextLine();
+                        System.out.println("Enter the date of travel");
+                        String dateOfTravel = input.nextLine();
+                        System.out.println("Enter the number of seats");
+                        Integer numberOfSeats = input.nextInt();
+
                     } else {
                         System.out.println("Please login first.");
                     }

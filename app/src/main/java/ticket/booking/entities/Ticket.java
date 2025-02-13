@@ -12,6 +12,18 @@ public class Ticket {
     private String userId;
     private Integer bookedSeats;
 
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "trainNumber='" + trainNumber + '\'' +
+                ", trainName='" + trainName + '\'' +
+                ", source='" + source + '\'' +
+                ", destination='" + destination + '\'' +
+                ", dateOfTravel='" + dateOfTravel + '\'' +
+                ", remainingSeat=" + bookedSeats +
+                '}';
+    }
+
 
     public Ticket(){}
     @JsonIgnoreProperties(ignoreUnknown = true)
