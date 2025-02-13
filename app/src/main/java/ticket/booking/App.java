@@ -100,15 +100,15 @@ public class App {
                 case 5:
                     if (isAuthenticated) {
                         System.out.println("\n=== Book Seats ===");
-                        System.out.println("Enter the source");
-                        String source = input.nextLine();
-                        System.out.println("Enter the destination");
-                        String destination = input.nextLine();
-                        System.out.println("Enter the date of travel");
-                        String dateOfTravel = input.nextLine();
-                        System.out.println("Enter the number of seats");
-                        Integer numberOfSeats = input.nextInt();
-
+                        System.out.println("Enter name of train to book seat");
+                        String trainName = input.nextLine();
+                        Integer availableSeats = trainServices.availableSeats(trainName);
+                        System.out.println("Available seats:" + availableSeats);
+                        System.out.println("Enter the number of seats to book");
+                        int countOfSeats = input.nextInt();
+                        trainServices.updateSeatCount(countOfSeats,trainName);
+                        System.out.println("Successfully booked your seats");
+                        userBookingServices.updateTicketsBooked(loggedInUser,trainName);
                     } else {
                         System.out.println("Please login first.");
                     }

@@ -44,7 +44,8 @@ public class User {
     public void setTicketsBooked(List<Ticket> ticketsBooked){
         this.ticketsBooked = ticketsBooked;
     }
-    public List<Ticket> getTicketsBooked(){  // Fixed Method Name
+
+    public List<Ticket> getTicketsBooked(){
         return ticketsBooked;
     }
 }

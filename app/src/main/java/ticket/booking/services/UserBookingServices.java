@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 public class UserBookingServices {
 
     private static final String USER_DB_PATH = "app/src/main/java/ticket/booking/localDb/userDb.json";
+    private static final String TRAIN_DB_PATH = "app/src/main/java/ticket/booking/localDb/trainDb.json";
 
     private static final ObjectMapper objectMapper = new ObjectMapper();
     private User currentActiveUser;
@@ -124,20 +125,65 @@ public class UserBookingServices {
     }
 
 
+    public void updateTicketsBooked(String username, String trainName) {
+        try {
+            // Load the user list from the JSON file
+            File userFile = new File(USER_DB_PATH);
+            List<User> userList = objectMapper.readValue(userFile, new TypeReference<List<User>>() {});
 
-    // -------------------  Book Seat  -------------------
-//    public void bookSeat(Train selectedTrain) {
-//        if (currentActiveUser == null) {
-//            System.out.println("Please login to book a seat.");
-//            return;
-//        }
-//
-//        Ticket newTicket = new Ticket(UUID.randomUUID().toString(), selectedTrain);
-//        currentActiveUser.getTicketsBooked().add(newTicket);
-//        storeUserToDb(currentActiveUser);
-//
-//        System.out.println("Ticket booked successfully: " + newTicket);
-//    }
+            // Load the train list from the JSON file
+            File trainFile = new File(TRAIN_DB_PATH);
+            List<Train> trainList = objectMapper.readValue(trainFile, new TypeReference<List<Train>>() {});
+
+            // Find the user by username
+            User userToUpdate = userList.stream()
+                    .filter(user -> user.getUsername().equalsIgnoreCase(username))
+                    .findFirst()
+                    .orElse(null);
+
+            if (userToUpdate == null) {
+                System.out.println("User not found.");
+                return;
+            }
+
+            // Find the train by name
+            Train selectedTrain = trainList.stream()
+                    .filter(train -> train.getTrainName().equalsIgnoreCase(trainName))
+                    .findFirst()
+                    .orElse(null);
+
+            if (selectedTrain == null) {
+                System.out.println("Train not found.");
+                return;
+            }
+
+            Ticket newTicket = new Ticket();
+            newTicket.setTrainName(selectedTrain.getTrainName());
+            newTicket.setTrainNumber(selectedTrain.getTrainNumber());
+            newTicket.setUserId(userToUpdate.getUsername());
+            newTicket.setSource(selectedTrain.getSource());
+            newTicket.setDestination(selectedTrain.getDestination());
+            newTicket.setBookedSeats(1);  // Assuming 1 seat booked, adjust as needed
+
+            // Add the new ticket to the user's ticket list
+            List<Ticket> tickets = userToUpdate.getTicketsBooked();
+            if (tickets == null) {
+                tickets = new ArrayList<>();
+            }
+            tickets.add(newTicket);
+            userToUpdate.setTicketsBooked(tickets);
+
+            // Update the user list in the JSON file
+            objectMapper.writeValue(userFile, userList);
+            System.out.println("Ticket booking updated successfully.");
+
+        } catch (IOException e) {
+            System.out.println("Error updating tickets booked: " + e.getMessage());
+        }
+    }
+
+
+
 
     // -------------------  Cancel My Booking  -------------------
 //    public void cancelMyBooking(String ticketId) {
