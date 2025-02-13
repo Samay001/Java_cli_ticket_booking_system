@@ -29,8 +29,7 @@ public class App {
             System.out.println("3: Fetch Bookings");
             System.out.println("4: Search Trains");
             System.out.println("5: Book Seats");
-            System.out.println("6: Cancel My Booking");
-            System.out.println("7: Exit the app");
+            System.out.println("6: Exit the app");
             System.out.print("Your choice: ");
 
             int choice = input.nextInt();
@@ -115,16 +114,6 @@ public class App {
                     break;
 
                 case 6:
-                    if (isAuthenticated) {
-                        System.out.println("\n=== Cancel My Booking ===");
-                        System.out.println("Cancelling booking for " + loggedInUser + "...");
-                        // Call the method to cancel booking (to be implemented)
-                    } else {
-                        System.out.println("Please login first.");
-                    }
-                    break;
-
-                case 7:
                     System.out.println("Exiting the application. Goodbye!");
                     isRunning = false;
                     break;

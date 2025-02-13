@@ -6,6 +6,7 @@ import ticket.booking.entities.Ticket;
 import ticket.booking.entities.Train;
 import ticket.booking.entities.User;
 
+import javax.jws.soap.SOAPBinding;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -124,7 +125,7 @@ public class UserBookingServices {
         }
     }
 
-
+    // -------------------  Updating tickets booked  -------------------
     public void updateTicketsBooked(String username, String trainName,Integer bookedSeats) {
         try {
             // Load the user list from the JSON file
@@ -181,24 +182,4 @@ public class UserBookingServices {
             System.out.println("Error updating tickets booked: " + e.getMessage());
         }
     }
-
-
-
-
-    // -------------------  Cancel My Booking  -------------------
-//    public void cancelMyBooking(String ticketId) {
-//        if (currentActiveUser == null) {
-//            System.out.println("Please login to cancel a booking.");
-//            return;
-//        }
-//
-//        List<Ticket> bookings = currentActiveUser.getTicketsBooked();
-//        if (bookings != null && !bookings.isEmpty()) {
-//            bookings.removeIf(ticket -> ticket.getTicketId().equals(ticketId));
-//            storeUserToDb(currentActiveUser);
-//            System.out.println("Booking cancelled successfully.");
-//        } else {
-//            System.out.println("No bookings found to cancel.");
-//        }
-//    }
 }
